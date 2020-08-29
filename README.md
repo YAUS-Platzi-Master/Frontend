@@ -1,4 +1,4 @@
-see this proyect in (https://github.com/YAUS-Platzi-Master/Frontend)
+see and clone this proyect in (https://github.com/YAUS-Platzi-Master/Frontend)
 
 ## Available Scripts
 
