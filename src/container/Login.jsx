@@ -2,6 +2,7 @@ import React from 'react';
 import '../assets/styles/container/login.scss';
 import { Link } from 'react-router-dom';
 
+
 const Login = () => (
   <section className='login'>
     <section className='login__container'>
@@ -9,10 +10,10 @@ const Login = () => (
       <form className='login__container--form'>
         <input className='input' type='text' placeholder='Correo' />
         <input className='input' type='password' placeholder='Contraseña' />
-        <button type='button' className='button'>Iniciar sesión</button>
+        <button type='link' className='button'>Iniciar sesión</button>
         <div className='login__container--remember-me'>
           <h1>
-            <input type='checkbox' id='cbox1' value='first_checkbox' />
+          <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></input>
             Recuérdame
           </h1>
           <a href='/'>Olvidé mi contraseña</a>
@@ -24,6 +25,7 @@ const Login = () => (
       </section> */}
       <p className='login__container--register'>
         No tienes ninguna cuenta
+<br/>
         <Link to='/registro'>Regístrate</Link>
       </p>
     </section>
