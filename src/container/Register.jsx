@@ -22,7 +22,6 @@ const Register = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert('Bienvenido a YAUS!');
     props.registerUser(form, '/Login');
   };
   return (

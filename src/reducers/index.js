@@ -3,6 +3,7 @@ const reducer = (state, action) => {
     case 'LOGIN_REQUEST':
     case 'REGISTER_REQUEST':
     case 'LOGOUT_REQUEST':
+    case 'URL_REQUEST:':
       return {
         ...state,
         user: action.payload,

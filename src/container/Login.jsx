@@ -7,8 +7,8 @@ import '../assets/styles/container/login.scss';
 
 const Login = (props) => {
   const [form, setValues] = useState({
+    password: '',
     username: '',
-    id: '',
   });
 
   const updateInput = (event) => {
@@ -20,10 +20,8 @@ const Login = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert('Bienvenido a YAUS!');
-    props.loginUser(form, '/home');
+    props.loginUser(form, '/');
   };
-
   return (
     <>
       <section className='login'>
