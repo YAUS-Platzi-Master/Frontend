@@ -7,11 +7,10 @@ import '../assets/styles/container/login.scss';
 
 const Login = (props) => {
   const [form, setValues] = useState({
-    password: '',
-    username: '',
+    email: '',
   });
 
-  const updateInput = (event) => {
+  const handleInput = (event) => {
     setValues({
       ...form,
       [event.target.name]: event.target.value,
@@ -20,8 +19,11 @@ const Login = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.loginUser(form, '/');
+    props.loginRequest(form);
+    props.history.push('/');
+
   };
+
   return (
     <>
       <section className='login'>
@@ -29,22 +31,22 @@ const Login = (props) => {
           <h2>Inicia sesión</h2>
           <form className='login__container--form' onSubmit={handleSubmit}>
             <input
-              name='username'
+              name='email'
               className='input'
               type='text'
-              placeholder='Nombre de usuario'
-              onChange={updateInput}
+              placeholder='Correo'
+              onChange={handleInput}
             />
             <input
               name='password'
               className='input'
               type='password'
               placeholder='Contraseña'
-              onChange={updateInput}
+              onChange={handleInput}
             />
-            <button className='button' type='submit'>Iniciar sesión</button>
+            <button type='submit' className='button'>Iniciar sesión</button>
             <div className='login__container--remember-me'>
-              <label htmlFor='first_checkbox'>
+              <label htmlFor='cbox1'>
                 <input type='checkbox' id='cbox1' value='first_checkbox' />
                 Recuérdame
               </label>
@@ -54,22 +56,17 @@ const Login = (props) => {
           <p className='login__container--register'>
             No tienes ninguna cuenta
             {' '}
-            <Link to='/register'>
+            <Link to='/Register'>
               Regístrate
             </Link>
+
           </p>
         </section>
       </section>
     </>
   );
 };
-
 const mapDispatchToProps = {
   loginUser,
 };
-
-Login.propTypes = {
-  loginUser: PropTypes.func,
-};
-
 export default connect(null, mapDispatchToProps)(Login);

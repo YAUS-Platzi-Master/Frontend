@@ -4,14 +4,51 @@
     vertical-align: middle;
     text-align: center;
     display: inline-table;
+    width: 75%;
+    margin: 15px;
 
 }
+.inputUrl{
+    width: 75%;
+}
 .creating_url{
-    border: 2px solid black;
+    border: 2px solid #AFC0C7;
     width: 500px;
     align-items: center;
     display: inline-block;
     vertical-align: middle;
     text-align: center;
     border-radius: 25px;
+}
+.info{
+    text-align: left;
+}
+.corte{
+	margin: 20px auto;
+	border: none;
+	padding: 10px 44px;
+	font-size: 36px;
+    position: relative;
+	&::before{
+		transition: all 0.85s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		content: '';
+		width: 50%;
+		height: 100%;
+		background: #AFC0C7;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	& .btn-text{
+		color: white;
+		// check out mdn docs for different types of blend modes. 
+		mix-blend-mode: difference;
+	}
+	&:hover{
+		&::before{
+			background: black;
+			width: 100%;
+		}
+	}
 }

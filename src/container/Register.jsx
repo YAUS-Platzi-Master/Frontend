@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { registerUser } from '../actions';
+import '../assets/styles/container/register.scss';
 
 const Register = (props) => {
   const [form, setValues] = useState({
@@ -34,7 +35,7 @@ const Register = (props) => {
               name='username'
               className='input'
               type='text'
-              placeholder='Nombre'
+              placeholder='Nombre usuario'
               onChange={updateInput}
             />
             <input
