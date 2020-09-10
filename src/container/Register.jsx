@@ -86,3 +86,4 @@ Register.propTypes = {
 };
 
 export default connect(null, mapDispatchToProps)(Register);
+
