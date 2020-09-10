@@ -1,35 +1,72 @@
-import React from 'react';
-import '../assets/styles/container/login.scss';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { loginUser } from '../actions';
+import '../assets/styles/container/login.scss';
 
+const Login = (props) => {
+  const [form, setValues] = useState({
+    email: '',
+  });
 
-const Login = () => (
-  <section className='login'>
-    <section className='login__container'>
-      <h2>Inicia sesión</h2>
-      <form className='login__container--form'>
-        <input className='input' type='text' placeholder='Correo' />
-        <input className='input' type='password' placeholder='Contraseña' />
-        <button type='link' className='button'>Iniciar sesión</button>
-        <div className='login__container--remember-me'>
-          <h1>
-          <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></input>
-            Recuérdame
-          </h1>
-          <a href='/'>Olvidé mi contraseña</a>
-        </div>
-      </form>
-      {/* <section class="login__container--social-media">
-        <div><img src="../assets/google-icon.png"> Inicia sesión con Google</div>
-        <div><img src="../assets/twitter-icon.png"> Inicia sesión con Twitter</div>
-      </section> */}
-      <p className='login__container--register'>
-        No tienes ninguna cuenta
-<br/>
-        <Link to='/registro'>Regístrate</Link>
-      </p>
-    </section>
-  </section>
-);
+  const handleInput = (event) => {
+    setValues({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
 
-export default Login;
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.loginRequest(form);
+    props.history.push('/');
+
+  };
+
+  return (
+    <>
+      <section className='login'>
+        <section className='login__container'>
+          <h2>Inicia sesión</h2>
+          <form className='login__container--form' onSubmit={handleSubmit}>
+            <input
+              name='email'
+              className='input'
+              type='text'
+              placeholder='Correo'
+              onChange={handleInput}
+            />
+            <input
+              name='password'
+              className='input'
+              type='password'
+              placeholder='Contraseña'
+              onChange={handleInput}
+            />
+            <button type='submit' className='button'>Iniciar sesión</button>
+            <div className='login__container--remember-me'>
+              <label htmlFor='cbox1'>
+                <input type='checkbox' id='cbox1' value='first_checkbox' />
+                Recuérdame
+              </label>
+              <a href='/'>Olvidé mi contraseña</a>
+            </div>
+          </form>
+          <p className='login__container--register'>
+            No tienes ninguna cuenta
+            {' '}
+            <Link to='/Register'>
+              Regístrate
+            </Link>
+
+          </p>
+        </section>
+      </section>
+    </>
+  );
+};
+const mapDispatchToProps = {
+  loginUser,
+};
+export default connect(null, mapDispatchToProps)(Login);

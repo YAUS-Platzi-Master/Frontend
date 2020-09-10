@@ -7,13 +7,13 @@
     padding: 0px 30px;
     min-height: calc(100vh - 200px); /* El ancho será igual al tamaño de todo el height menos 200px (100px del header + 100px del footer) */
   }
-
+  
   .register__container {
-    background-color: mediumspringgreen;
+    background-color: rgba(255,255,255,0.1);
     border: 2px solid white;
     border-radius: 40px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    color: blue;
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -21,67 +21,22 @@
     padding: 60px 68px 40px;
     width: 300px;
   }
-
+  
   .register__container--form {
     display: flex;
     flex-direction: column;
   }
-
+  
   .register__container a {
-    color: rgb(255, 255, 255);
+    color: black;
     font-size: 16px;
     text-align: center;
     text-decoration: none;
-    height: 30px;
-    margin: 30px;
-    border-radius: 30px;
-    background-color: #21c08b;
-    font-family: 'Muli', sans-serif;
-    padding-top: 10px;
-    }
-
+  }
+  
   .register__container a:hover {
     text-decoration: underline;
   }
-
-  .button {
-    color: blue;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    height: 30px;
-    margin: 30px;
-    border-radius: 30px;
-    background-color: #21c08b;
-    padding: 20px;
-}
-
-  .input {
-    margin-top: 30px;
-    margin-left: 30px;
-    margin-right: 30px;
+  .input{
+    margin-bottom: 15px;
   }
-
-  element.style {
-    margin-top: 30px;
-    margin-left: 30px;
-    margin-right: 30px;
-}
-
-button.button{
-  color: rgb(248, 248, 255);
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    height: 30px;
-    margin: 30px;
-    border-radius: 30px;
-    background-color: #21c08b;
-    padding: 20px;
-    padding-bottom: 30px;
-    margin-left: 90px;
-    text-align: center;
-    font-family: 'Muli', sans-serif;
-    margin-right: 90px;
-    width: 144px;
-}
