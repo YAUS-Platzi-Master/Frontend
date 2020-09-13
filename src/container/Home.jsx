@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { urlUser } from '../actions';
+import { createUrl } from '../actions';
 import '../assets/styles/container/home.scss';
 
 const Home = (props) => {
   const [form, setValues] = useState({
     long_url: '',
     custom_url: false,
+    short_url_custom: null,
   });
 
   const updateInput = (event) => {
@@ -18,12 +19,13 @@ const Home = (props) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.urlUser(form);
+    console.log(form);
+    props.createUrl(form);
   };
   return (
     <div className='home_url'>
       <form className='creating_url' onSubmit={handleSubmit}>
-        <h3>Sólo ingresa tu URL y clickea "Acortar"</h3>
+        <h3>Sólo ingresa tu URL y clickea Acortar</h3>
         <input
           name='long_url'
           className='inputUrl'
@@ -65,11 +67,11 @@ const Home = (props) => {
 };
 
 const mapDispatchToProps = {
-  urlUser,
+  createUrl,
 };
 
 Home.propTypes = {
-  urlUser: PropTypes.func,
+  createUrl: PropTypes.func,
 };
 
 export default connect(null, mapDispatchToProps)(Home);

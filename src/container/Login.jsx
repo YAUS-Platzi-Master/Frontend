@@ -7,7 +7,9 @@ import '../assets/styles/container/login.scss';
 
 const Login = (props) => {
   const [form, setValues] = useState({
-    email: '',
+    username: '',
+    id: '',
+    name: '',
   });
 
   const handleInput = (event) => {
@@ -19,8 +21,8 @@ const Login = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.loginRequest(form);
-    props.history.push('/');
+    console.log(form);
+    props.loginUser(form, '/');
 
   };
 
@@ -31,10 +33,10 @@ const Login = (props) => {
           <h2>Inicia sesión</h2>
           <form className='login__container--form' onSubmit={handleSubmit}>
             <input
-              name='email'
+              name='username'
               className='input'
               type='text'
-              placeholder='Correo'
+              placeholder='Nombre Usuario'
               onChange={handleInput}
             />
             <input
@@ -68,5 +70,9 @@ const Login = (props) => {
 };
 const mapDispatchToProps = {
   loginUser,
+};
+
+Login.propTypes = {
+  loginUser: PropTypes.func,
 };
 export default connect(null, mapDispatchToProps)(Login);
