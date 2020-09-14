@@ -1,5 +1,6 @@
 import React, { useState, Component } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import '../assets/styles/container/loginuser.scss';
 
 class LoginUser extends Component {
@@ -75,9 +76,22 @@ class LoginUser extends Component {
     })
       .then(({ data }) => {
         this.getShortUrls();
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Shorturl Created',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((err) => {
-        console.log(err);
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Custom URL already exists',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
   }
 
