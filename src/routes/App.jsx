@@ -5,6 +5,7 @@ import Login from '../container/Login';
 import Register from '../container/Register';
 import NotFound from '../container/NotFound';
 import Layout from '../components/Layout';
+import login from '../routes/login';
 
 const App = () => (
   <BrowserRouter>

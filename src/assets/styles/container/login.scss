@@ -8,12 +8,16 @@
     min-height: calc(100vh - 200px); /* El ancho será igual al tamaño de todo el height menos 200px (100px del header + 100px del footer) */
   }
   
+  h2 {
+    text-align: center;
+  }
+
   .login__container {
-    background-color: rgba(255,255,255,0.1);
+    background-color: #8ea1e1;
     border: 2px solid white;
     border-radius: 40px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    color: white;
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -29,19 +33,20 @@
   
   .login__container--form h1 {
     font-size: 14px;
+    text-align: center;
   }
   
   .login__container--remember-me {
-    color: white;
+    color: black;
     display: flex;
-    justify-content: space-between;
     margin-top: 10px;
   }
   
   .login__container--remember-me a {
-    color: white;
+    color: black;
     font-size: 14px;
     text-decoration: none;
+    text-align: center;
   }
   
   .login__container--remember-me a:hover {
@@ -62,15 +67,48 @@
   
   .login__container--register {
     font-size: 14px;
+    text-align: center;
   }
   
   .login__container--register a {
-    color: white;
+    color: black;
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
+    text-align: center;
   }
   
   .login__container--register a:hover {
     text-decoration: underline;
   }
+
+  .input {
+    background-color: #AFC0C7;
+    border: 2px solid white;
+    border-radius: 25px;
+    color: white;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    margin-bottom: 20px;
+    outline: none;
+    padding: 0px 20px;
+    width: 70%;
+  }
+
+  ::placeholder {
+    color: white;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .main__description--title {
+      font-size: 30px;
+    }
+
+    .footer {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  
