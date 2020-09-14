@@ -59,6 +59,8 @@ class LoginUser extends Component {
   createURL(event) {
     event.preventDefault();
     const { token, longUrl, customName } = this.state;
+    const isCustomName = customName.length > 0;
+
     axios({
       url: 'https://yaus-api.herokuapp.com/api/1.0/register/new_url',
       method: 'post',
@@ -67,8 +69,8 @@ class LoginUser extends Component {
       },
       data: {
         'long_url': longUrl,
-        'custom_url': false,
-        'short_url_custom': 'hola-mundo2',
+        'custom_url': isCustomName,
+        'short_url_custom': customName,
       },
     })
       .then(({ data }) => {
