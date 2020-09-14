@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createUrl } from '../actions';
+import { useCreateUrl } from '../actions';
 import '../assets/styles/container/home.scss';
 
 const Home = (props) => {
@@ -11,20 +11,25 @@ const Home = (props) => {
     short_url_custom: null,
   });
 
+  const [shortUrl, setShortUrl] = useState('');
+
+  const useCreateUrlContext = useCreateUrl(form);
+
   const updateInput = (event) => {
     setValues({
       ...form,
       [event.target.name]: event.target.value,
     });
   };
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(form);
-    props.createUrl(form);
+    const response = await useCreateUrlContext.createUrl();
+    setShortUrl(response);
   };
   return (
     <div className='home_url'>
-      <form className='creating_url' onSubmit={handleSubmit}>
+      {/* <form className='creating_url' onSubmit={handleSubmit}>
         <h3>Sólo ingresa tu URL y clickea Acortar</h3>
         <input
           name='long_url'
@@ -34,7 +39,31 @@ const Home = (props) => {
           onChange={updateInput}
         />
         <br />
+        {shortUrl && <h1>{shortUrl}</h1>}
         <button type='submit' className='corte'><span className='btn-text'>Acortar</span></button>
+      </form> */}
+      <form className='creating_url' onSubmit={handleSubmit}>
+        <input
+          name='long_url'
+          className='inputUrl'
+          type='text'
+          placeholder='url'
+          onChange={updateInput}
+        />
+        <div>
+          {shortUrl && (
+            <h3>
+              Tu URL recortada es yaus.xyz/
+              {shortUrl}
+            </h3>
+          )}
+        </div>
+        <button
+          type='submit'
+          className='corte'
+        >
+          <span className='btn-text'>Acortar</span>
+        </button>
       </form>
       <div className='col-xs-12 info'>
         <h3 className='lighter smaller'>¿Que significa las siglas de YAUS ?</h3>
@@ -66,12 +95,12 @@ const Home = (props) => {
   );
 };
 
-const mapDispatchToProps = {
-  createUrl,
-};
+// const mapDispatchToProps = {
+//   useCreateUrl,
+// };
 
-Home.propTypes = {
-  createUrl: PropTypes.func,
-};
+// Home.propTypes = {
+//   useCreateUrl: PropTypes.func,
+// };
 
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(null, null)(Home);

@@ -60,9 +60,31 @@ export const registerUser = (payload, redirectUrl) => {
   };
 };
 
-export const createUrl = ({ long_url, custom_url, short_url_custom }) => {
-  return (dispatch) => {
-    axios({
+// export const createUrl = ({ long_url, custom_url, short_url_custom }) => {
+//   return (dispatch) => {
+//     axios({
+//       url: 'https://yaus-api.herokuapp.com/api/1.0/register/new_url',
+//       method: 'post',
+//       data: {
+//         long_url,
+//         custom_url,
+//         short_url_custom,
+//       },
+//     })
+//       .then(({ data }) => {
+//         return data.register_set.short_url;
+//       })
+//       .catch((error) => dispatch(setError(error)));
+//   };
+// };
+export const useCreateUrl = ({ long_url, custom_url, short_url_custom }) => {
+  const setError = (payload) => ({
+    type: 'SET_ERROR',
+    payload,
+  });
+
+  const createUrl = async (dispatch) => {
+    const result = await axios({
       url: 'https://yaus-api.herokuapp.com/api/1.0/register/new_url',
       method: 'post',
       data: {
@@ -72,8 +94,14 @@ export const createUrl = ({ long_url, custom_url, short_url_custom }) => {
       },
     })
       .then(({ data }) => {
-        alert(`Tu nueva url acortada es yaus.xyz/${data.register_set.short_url}`);
+        return data.register_set.short_url;
       })
-      .catch((error) => dispatch(setError(error)));
+      .catch((error) => (setError(error)));
+
+    return result;
+  };
+
+  return {
+    createUrl,
   };
 };
