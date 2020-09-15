@@ -34,7 +34,7 @@ class LoginUser extends Component {
   }
 
   getCookie(name) {
-    const match = document.cookie.match(RegExp('(?:^|;\\s*)' + name.replace(/([.*+?\^$(){}|\[\]\/\\])/g, '\\$1') + '=([^;]*)'));
+    const match = document.cookie.match(RegExp(`(?:^|;\\s*)${name.replace(/([.*+?\^$(){}|\[\]\/\\])/g, '\\$1')}=([^;]*)`));
     return match ? match[1] : null;
   }
 
@@ -118,9 +118,14 @@ class LoginUser extends Component {
     const { shortUrls } = this.state;
     const { shortUrl } = this.state;
 
-    const items = shortUrls.map((item) => <a onClick={this.showStats} role='button' className='list-group-item list-group-item-action text-info' key={item.id} data-key={item.id}>https://yaus.xyz/{item.short_url}</a>);
+    const items = shortUrls.map((item) => (
+      <a onClick={this.showStats} role='button' className='list-group-item list-group-item-action text-info' key={item.id} data-key={item.id}>
+        https://yaus.xyz/
+        {item.short_url}
+      </a>
+    ));
 
-    const summary = shortUrl.map((item) => 
+    const summary = shortUrl.map((item) => (
       <table className='table table-hover' key={item.id}>
         <thead>
           <tr>
@@ -146,7 +151,7 @@ class LoginUser extends Component {
           </tr>
         </tbody>
       </table>
-    );
+    ));
 
     return (
       <div className='home_url'>
