@@ -3,6 +3,7 @@ import '../assets/styles/components/footer.scss';
 
 const Header = () => (
   <footer className='footer'>
+    {/* TODO: Terminos => Términos */}
     <a href='/'>Terminos de uso</a>
     <a href='/'>Declaración de privacidad</a>
     <a href='/'>Centro de ayuda</a>
