@@ -18,6 +18,7 @@ const Header = (props) => {
         </div>
         <ul>
           <li><Link to='/'>Cuenta</Link></li>
+          {/* TODO: Sesion => Sesión */}
           <li><a href='#logout'>Cerrar Sesion</a></li>
           <li><Link to='/Login'>Iniciar Sesion</Link></li>
         </ul>

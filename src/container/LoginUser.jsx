@@ -6,6 +6,8 @@ import '../assets/styles/container/loginuser.scss';
 class LoginUser extends Component {
 
   constructor(props) {
+    // TODO:
+    // super is deprecated
     super(props);
     this.state = {
       longUrl: '',
@@ -43,6 +45,8 @@ class LoginUser extends Component {
     const id = event.target.dataset.key;
 
     axios({
+      // TODO:
+      // The URL should be a 'const' to avoid changes in multiples lines
       url: `https://yaus-api.herokuapp.com/api/1.0/set_of_urls/${id}`,
       method: 'get',
       headers: {
@@ -63,6 +67,8 @@ class LoginUser extends Component {
     const isCustomName = customName.length > 0;
 
     axios({
+      // TODO:
+      // The URL should be a 'const' to avoid changes in multiples lines
       url: 'https://yaus-api.herokuapp.com/api/1.0/register/new_url',
       method: 'post',
       headers: {
@@ -98,6 +104,8 @@ class LoginUser extends Component {
   getShortUrls() {
     const { token } = this.state;
     axios({
+      // TODO:
+      // The URL should be a 'const' to avoid changes in multiples lines
       url: 'https://yaus-api.herokuapp.com/api/1.0/set_of_urls/',
       method: 'get',
       headers: {
@@ -113,6 +121,8 @@ class LoginUser extends Component {
   }
 
   render() {
+    // TODO:
+    // This lines could be one line `const { longUrl, customName, shortUrls, shortUrl } = this.state;`
     const { longUrl } = this.state;
     const { customName } = this.state;
     const { shortUrls } = this.state;
